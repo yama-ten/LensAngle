@@ -9,4 +9,10 @@
     <Version>1.1.0</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="ViewAngleTest\**" />
+    <EmbeddedResource Remove="ViewAngleTest\**" />
+    <None Remove="ViewAngleTest\**" />
+  </ItemGroup>
+
 </Project>
