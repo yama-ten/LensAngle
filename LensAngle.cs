@@ -5,6 +5,7 @@
  * date: 2021.10.04
  * ver 1.0 / 2021.10.04
  * ver 1.1 / 2021.10.17
+ * ver 1.2 / 2022.05.09 チェックボックス付けた。
  * copyright: yama-ten
  */
 
@@ -20,6 +21,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// 改良案
+// オブジェクト「レンズの画角」を定義する
+// プロパティは
+//	対角、水平、垂直の各画角、
+//	35mm、APS-C、6x45の各焦点距離。
+//  プロパティのどれか一つを変更すると、他のプロパティが再計算される。
+//  各画角の描画を行うメソッドを持つ。
+
+
+
 namespace LensAngle
 {
 	public partial class LensAngle : Form
@@ -27,6 +38,9 @@ namespace LensAngle
 		{
 			InitializeComponent();
 			this.Text = "画角と焦点距離";
+			this.chkDiagonal.Checked =
+			this.chkHorizontal.Checked =
+			this.chkVertical.Checked = true;
 		}
 
 		Rectangle box;
@@ -48,7 +62,8 @@ namespace LensAngle
 			hScrollBar1.Maximum = 909;
 			hScrollBar1.SmallChange = 1;
 			hScrollBar1.Value = 230; // 23.0 degree (46/2 deg.)
-			draw_LensAngle((double)hScrollBar1.Value/10);
+			degree = (double)hScrollBar1.Value/10;
+			draw_LensAngle(degree);
 		}
 
 
@@ -169,9 +184,14 @@ namespace LensAngle
 			int width = bigRect.Width;
 			int height = bigRect.Height;
 
-			draw_pie(av, g, bigRect, new Pen(Color.Pink,1)); 
-			draw_pie(ah, g, bigRect, new Pen(Color.LightGreen,1)); 
-			draw_pie(degree, g, bigRect, new Pen(Color.Blue,1)); 
+			if (this.chkVertical.Checked)
+				draw_pie(av, g, bigRect, new Pen(Color.Pink,1)); 
+
+			if (this.chkHorizontal.Checked)
+				draw_pie(ah, g, bigRect, new Pen(Color.LightGreen,1)); 
+
+			if (this.chkDiagonal.Checked)
+				draw_pie(degree, g, bigRect, new Pen(Color.Blue,1)); 
 
 			//PictureBox1に表示する
 			pictureBox1.Image = canvas;
@@ -182,10 +202,26 @@ namespace LensAngle
 		}
 
 
+		private double degree;
 		private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
 		{
 			ScrollBar ctrl = (ScrollBar)sender;
-			double degree =  (double)(ctrl.Value)/10;
+			degree =  (double)(ctrl.Value)/10;
+			draw_LensAngle(degree);
+		}
+
+		private void chkDiagonal_CheckedChanged(object sender, EventArgs e)
+		{
+			draw_LensAngle(degree);
+		}
+
+		private void chkHorizontal_CheckedChanged(object sender, EventArgs e)
+		{
+			draw_LensAngle(degree);
+		}
+
+		private void chkVertical_CheckedChanged(object sender, EventArgs e)
+		{
 			draw_LensAngle(degree);
 		}
 	}
