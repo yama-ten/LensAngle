@@ -34,7 +34,8 @@ using System.Windows.Forms;
 namespace LensAngle
 {
 	public partial class LensAngle : Form
-	{		public LensAngle()
+	{	
+		public LensAngle()
 		{
 			InitializeComponent();
 			this.Text = "画角と焦点距離";

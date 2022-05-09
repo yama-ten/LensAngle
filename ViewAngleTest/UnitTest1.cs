@@ -51,6 +51,21 @@ namespace ViewAngleTest
 
 			t1.Ad = t2.Ad;
 			Console.WriteLine(t1);
+
+			var t3 = new ViewAngle();
+			t3.DiagonalLength = 43;
+			Console.WriteLine(t3);
+
+			var t4 = new ViewAngle(56, 56f/4*3, "6x45");
+			t4.f = t4.D;
+			Console.WriteLine(t4);
+
+			t4.Ad = 45;
+			Console.WriteLine(t4);
+			t4.f = 80;
+			Console.WriteLine(t4);
+			t4.f = 60;
+			Console.WriteLine(t4);
 		}
 	}
 }
