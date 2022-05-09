@@ -40,6 +40,8 @@ namespace LensAngle
 			this.chkDiagonal = new System.Windows.Forms.CheckBox();
 			this.chkHorizontal = new System.Windows.Forms.CheckBox();
 			this.chkVertical = new System.Windows.Forms.CheckBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -81,17 +83,17 @@ namespace LensAngle
 			this.lbl_35mm.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.lbl_35mm.Location = new System.Drawing.Point(361, 364);
 			this.lbl_35mm.Name = "lbl_35mm";
-			this.lbl_35mm.Size = new System.Drawing.Size(44, 17);
+			this.lbl_35mm.Size = new System.Drawing.Size(65, 17);
 			this.lbl_35mm.TabIndex = 11;
-			this.lbl_35mm.Text = "35mm";
+			this.lbl_35mm.Text = "35mm  f=";
 			// 
 			// Lens_35mm
 			// 
 			this.Lens_35mm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Lens_35mm.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.Lens_35mm.Location = new System.Drawing.Point(411, 362);
+			this.Lens_35mm.Location = new System.Drawing.Point(431, 362);
 			this.Lens_35mm.Name = "Lens_35mm";
-			this.Lens_35mm.Size = new System.Drawing.Size(51, 25);
+			this.Lens_35mm.Size = new System.Drawing.Size(43, 25);
 			this.Lens_35mm.TabIndex = 10;
 			this.Lens_35mm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
@@ -101,17 +103,17 @@ namespace LensAngle
 			this.lbl_APS_C.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.lbl_APS_C.Location = new System.Drawing.Point(361, 390);
 			this.lbl_APS_C.Name = "lbl_APS_C";
-			this.lbl_APS_C.Size = new System.Drawing.Size(43, 17);
+			this.lbl_APS_C.Size = new System.Drawing.Size(64, 17);
 			this.lbl_APS_C.TabIndex = 13;
-			this.lbl_APS_C.Text = "APS-C";
+			this.lbl_APS_C.Text = "APS-C  f=";
 			// 
 			// Lens_Apsc
 			// 
 			this.Lens_Apsc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Lens_Apsc.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.Lens_Apsc.Location = new System.Drawing.Point(411, 388);
+			this.Lens_Apsc.Location = new System.Drawing.Point(431, 388);
 			this.Lens_Apsc.Name = "Lens_Apsc";
-			this.Lens_Apsc.Size = new System.Drawing.Size(51, 25);
+			this.Lens_Apsc.Size = new System.Drawing.Size(43, 25);
 			this.Lens_Apsc.TabIndex = 12;
 			this.Lens_Apsc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
@@ -170,12 +172,32 @@ namespace LensAngle
 			this.chkVertical.UseVisualStyleBackColor = true;
 			this.chkVertical.CheckedChanged += new System.EventHandler(this.chkVertical_CheckedChanged);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(480, 366);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(27, 15);
+			this.label1.TabIndex = 21;
+			this.label1.Text = "mm";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(480, 390);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(27, 15);
+			this.label2.TabIndex = 22;
+			this.label2.Text = "mm";
+			// 
 			// LensAngle
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLight;
 			this.ClientSize = new System.Drawing.Size(510, 414);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.chkVertical);
 			this.Controls.Add(this.chkHorizontal);
 			this.Controls.Add(this.chkDiagonal);
@@ -211,6 +233,8 @@ namespace LensAngle
 		private System.Windows.Forms.CheckBox chkDiagonal;
 		private System.Windows.Forms.CheckBox chkHorizontal;
 		private System.Windows.Forms.CheckBox chkVertical;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
 	}
 }
 
