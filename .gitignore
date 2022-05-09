@@ -132,3 +132,6 @@
 /ViewAngleTest/obj/project.assets.json
 /ViewAngleTest/obj/project.nuget.cache
 /obj/Debug/netcoreapp3.1/LensAngle.LensAngle.resources
+/.vs/LensAngleApp/DesignTimeBuild/.dtbcache.v2
+/.vs/LensAngleApp/v16/TestStore/0/000.testlog
+/.vs/LensAngleApp/v16/TestStore/0/testlog.manifest
