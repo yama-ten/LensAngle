@@ -158,23 +158,37 @@ namespace LensAngle
 			DiagonalAngle.Text = (2*degree).ToString("##0.0 ");
 
 			// 35mm の焦点距離
-			double tan = Math.Tan(degree*Math.PI/180);
-			double diagonal = Math.Sqrt(36*36+24*24);
-			double f = (diagonal/2)/tan;
+			//double tan = Math.Tan(degree*Math.PI/180);
+			//double diagonal = Math.Sqrt(36*36+24*24);
+			//double f = (diagonal/2)/tan;
+			//Lens_35mm.Text = (f+0.05).ToString("###0.0 ");
+			var f35 = new ViewAngle(36,24);
+			f35.Ad = (float)(2*degree);
+			double f = f35.f;
 			Lens_35mm.Text = (f+0.05).ToString("###0.0 ");
+
 			
 			// 水平画角
-			double ah = Math.Atan((36/2)/f)/Math.PI*180;
-			AngleH.Text = (2*ah).ToString("##0.0 ");
+			//double ah = Math.Atan((36/2)/f)/Math.PI*180;
+			//AngleH.Text = (2*ah).ToString("##0.0 ");
+			double ah = f35.Ah/2;
+			AngleH.Text = (ah*2).ToString("##0.0 ");
 
 			// 垂直画角
-			double av = Math.Atan((24/2)/f)/Math.PI*180;
-			AngleV.Text = (2*av).ToString("##0.0 ");
+			//double av = Math.Atan((24/2)/f)/Math.PI*180;
+			//AngleV.Text = (2*av).ToString("##0.0 ");
+			double av = f35.Av/2;
+			AngleV.Text = (av*2).ToString("##0.0 ");
 
 			// APS-C(24mm) の焦点距離
-			diagonal = Math.Sqrt(24*24+16*16);
-			f = (diagonal/2)/tan;
+			//diagonal = Math.Sqrt(24*24+16*16);
+			//f = (diagonal/2)/tan;
+			//Lens_Apsc.Text = (f+0.05).ToString("###0.0 ");
+			var aps = new ViewAngle(23.6f, 15.6f);
+			aps.Ad = f35.Ad;
+			f = aps.f;
 			Lens_Apsc.Text = (f+0.05).ToString("###0.0 ");
+
 
 			int top = center.Y - bigRect.Height/2;
 			int left = center.X - bigRect.Width/2;
